@@ -9,7 +9,16 @@ type MainController struct {
 }
 
 func (this *MainController) Get() {
-	this.Data["Website"] = "beego.me"
-	this.Data["Email"] = "astaxie@gmail.com"
+	this.Data["Website"] = "beego"
+	this.Data["Email"] = "astaxie"
 	this.TplNames = "index.tpl"
+}
+
+type HelloController struct {
+	beego.Controller
+}
+
+func (this *HelloController) Get() {
+	this.Data["json"] = `{h:1,b:2}`
+	this.ServeJson()
 }
